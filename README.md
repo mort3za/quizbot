@@ -6,7 +6,7 @@ A telegram bot to create quizzes.
 - Supports multiple quizzes
 - Questions can have 2 or more items
 - Uses glassy buttons of Telegram
-- Manage quizzes and results in Wordpress (Uses most popular quiz plugin in Wordpress)
+- Manage quizzes and results in Wordpress (Uses a quiz plugin in Wordpress)
 
 # Installation
 1. Install a [Wordpress](https://wordpress.org) and [Quiz And Survey Master](https://wordpress.org/plugins/quiz-master-next/) plugin.
