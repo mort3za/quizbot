@@ -12,6 +12,7 @@ let config = {
   token: token,
   base_api: base_api,
   base_domain: base_domain,
+  // NOTE: Max 3 fields
   user_required_fields: ["fullname", "natcode", "mobile"],
   prevent_duplicate_answers: true,
   registeration_messages: {
