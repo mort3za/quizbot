@@ -24,7 +24,7 @@ In "Quiz And Survey Master" plugin you should enable phone, company and mobile f
 ---
 
 # TODO
-Make signup optional by a config
-Add main keyboard
-Use question points of wp plugin
-Your ideas!
+- Make signup optional by a config
+- Add main keyboard
+- Use question points of wp plugin
+- Your ideas!
