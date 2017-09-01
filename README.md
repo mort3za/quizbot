@@ -9,7 +9,7 @@ A telegram bot to create quizzes.
 # Installation
 1. Install a [Wordpress](https://wordpress.org) and [Quiz And Survey Master](https://wordpress.org/plugins/quiz-master-next/) plugin.
 2. Upload `wordpress-files/quiz-functions.php` to `wp-content/mu-plugins` folder of wordpress. 
-3. Install & run [Redis](https://redis.io/topics/quickstart). Also make sure Redis in on server boot by `redis-cli startup`.
+3. Install & run [Redis](https://redis.io/topics/quickstart). Also make sure Redis is on server boot by `redis-cli startup`.
 4. `npm i`
 5. Set your configs (bot token, base domain, ...) in `config.js`
 6. Run `node index.js`
