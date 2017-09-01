@@ -14,7 +14,7 @@ A telegram bot to create quizzes.
 5. Set your configs (bot token, base domain, ...) in `config.js`
 6. Run `node index.js`
 
-Now talk to bot and press `/start` ;)
+Now send /start to your bot.
 
 ### Note
 In "Quiz And Survey Master" plugin you should enable phone, company and mobile fields in order to recieve these data from bot. (Create a quiz, Go to options tab and enable those fields).
