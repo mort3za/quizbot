@@ -1,4 +1,4 @@
-# quizbot
+# Quiz Bot
 A telegram bot to create quizzes.
 
 # Features
