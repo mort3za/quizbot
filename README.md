@@ -2,10 +2,8 @@
 A telegram bot to create quizzes.
 
 # Features
-- Get user informations (Customizable fields)
-- Supports multiple quizzes
-- Questions can have 2 or more items
-- Uses glassy buttons of Telegram
+- Get user informations (Customizable fields and messages) 
+- Create multiple quizzes with multiple-choice options and show them in Telegram
 - Manage quizzes and results in Wordpress (Uses a quiz plugin in Wordpress)
 
 # Installation
