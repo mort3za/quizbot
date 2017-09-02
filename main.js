@@ -49,6 +49,7 @@ bot.on("callback_query", msg => {
         console.error("Unknown callback query.");
         break;
     }
+    bot.answerCallbackQuery(msg.id);
   }
 });
 
