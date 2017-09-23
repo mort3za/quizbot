@@ -7,14 +7,12 @@
   "license": "UNLICENCED",
   "dependencies": {
     "@std/esm": "^0.7.1",
-    "app-root-path": "^2.0.1",
     "axios": "^0.16.2",
     "babel-polyfill": "^6.26.0",
-    "function-rate-limit": "^1.1.0",
+    "html-entities": "^1.2.1",
+    "html-to-text": "^3.3.0",
     "locutus": "^2.0.9",
-    "md5": "^2.1.1",
     "node-telegram-bot-api": "^0.27.1",
-    "password-generator": "^2.1.0",
     "qs": "^6.5.0",
     "redis": "^2.8.0"
   },

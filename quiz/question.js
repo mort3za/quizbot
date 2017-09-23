@@ -4,6 +4,10 @@ import qs from "qs";
 import config from "../config.js";
 import redis from "redis";
 import Quiz from "./quiz.js";
+import htmlToText from "html-to-text";
+import htmlEntities from "html-entities";
+const Entities = htmlEntities.XmlEntities;
+const entities = new Entities();
 
 const bot = config.bot;
 const redisClient = redis.createClient();
@@ -39,7 +43,7 @@ function getAnUnanswered({chatId}) {
 
       const opts = {
         reply_markup: JSON.stringify({
-          inline_keyboard: keyboard
+          inline_keyboard: keyboard,
         })
       };
 
@@ -49,9 +53,11 @@ function getAnUnanswered({chatId}) {
 }
 
 function showAnUnanswered(chatId) {
+  
   getAnUnanswered({chatId: chatId}).then(
     res => {
-      bot.sendMessage(chatId, res.question.question_name, res.options);
+      let text = cleanText(res.question.question_name);
+      bot.sendMessage(chatId, text, res.options);
     },
     error => {
       console.error(error.message);
@@ -103,10 +109,10 @@ function answer(chatId, quiz_id, question_id, answer_id) {
 function handleAnswer(chatId, json) {
   Question.answer(chatId, json.quiz_id, json.question_id, json.answer_id).then(
     res => {
-      console.log("res", res);
+      // console.log("res", res);
       switch (res.status) {
         case "success":
-          bot.sendMessage(chatId, "Thank you!");
+          bot.sendMessage(chatId, config.messages.answer_sent);
           break;
         case "fail":
           bot.sendMessage(chatId, config.messages.cant_send);
@@ -126,6 +132,11 @@ function handleAnswer(chatId, json) {
       console.error(error.message);
     }
   );
+}
+
+function cleanText(text = "") {
+  let result = text;
+  return htmlToText.fromString(entities.decode(result));
 }
 
 export default Question;

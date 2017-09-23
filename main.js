@@ -55,7 +55,7 @@ bot.on("callback_query", msg => {
 
 // JUST FOR DEVELOPMENT
 // ------------------------------------------
-bot.onText(/\/d/, function onText(msg) {
+bot.onText(/\/delete user/, function onText(msg) {
   redisClient.del(`${msg.chat.id}-user`);
   bot.sendMessage(msg.chat.id, "User Removed.");
 });
