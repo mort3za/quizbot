@@ -14,17 +14,18 @@ let config = {
   base_domain: base_domain,
   // NOTE: Max 3 fields
   user_required_fields: ["fullname", "natcode", "mobile"],
-  prevent_duplicate_answers: true,
+  prevent_duplicate_answers: false,
   registeration_messages: {
-    fullname: "Please enter your full name",
-    natcode: "Please enter your natianal code",
-    mobile: "Please enter your mobile number"
+    fullname: ["Please enter your full name:", null, ""],
+    natcode: ["Please enter your natianal code:", /^(\d{10}|[۱۲۳۴۵۶۷۸۹۰]{10})$/, "Should be 10 digits without dashes."],
+    mobile: ["Please enter your mobile number:", /^(09\d{9}|۰۹[۱۲۳۴۵۶۷۸۹۰]{9})$/, "Should be something like this: 09121111111"]
   },
   messages: {
+    answer_sent: "Your answers recieved. Thanks.",
     select_quiz: "Please select a quiz:",
-    no_question: "No questions found.",
-    cant_send: "Sorry! A problem occured in sending data.",
-    prevent_duplicate_answers: "Sorry. You can't answer twice."
+    no_question: "There is no questions yet.",
+    cant_send: "Something went wrong.",
+    prevent_duplicate_answers: "You can't answer a quiz twice."
   }
 };
 

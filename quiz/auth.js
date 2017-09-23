@@ -57,16 +57,24 @@ function register(chatId, incompleteUser) {
           force_reply: true
         })
       };
-      bot.sendMessage(chatId, config.registeration_messages[incompleteField], opts).then(res => {
-        let listenerId = bot.onReplyToMessage(chatId, res.message_id, onReply);
+      const fieldMessage = config.registeration_messages[incompleteField][0];
+      const fieldValidationRule = config.registeration_messages[incompleteField][1];
+      const fieldValidationError = config.registeration_messages[incompleteField][2];
+      bot.sendMessage(chatId, fieldMessage, opts).then(res => {
+        const listenerId = bot.onReplyToMessage(chatId, res.message_id, onReply);
 
         function onReply({text}) {
           bot.removeReplyListener(listenerId);
 
-          let newFieldOfUser = {[incompleteField]: text};
-          saveUser(chatId, newFieldOfUser).then(user => {
-            getFields(user);
-          });
+          const newFieldOfUser = {[incompleteField]: text};
+          if(fieldValidationRule === null || fieldValidationRule.test(text)){
+            saveUser(chatId, newFieldOfUser).then(user => {
+              getFields(user);
+            });
+          } else {
+            bot.sendMessage(chatId, fieldValidationError);
+            getFields(currentUser);
+          }
         }
       });
     }
